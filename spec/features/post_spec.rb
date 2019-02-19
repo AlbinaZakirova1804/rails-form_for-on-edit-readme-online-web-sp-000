@@ -27,7 +27,7 @@ describe 'form' do
 
     fill_in 'title', with: "My post title"
     fill_in 'description', with: "My post description"
-
+byebug
     click_on "Submit Post"
 
     expect(page).to have_content("My post title")

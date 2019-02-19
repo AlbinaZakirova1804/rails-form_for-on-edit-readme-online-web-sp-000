@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+before_action :find_post, only: []
+
 	def index
 		@posts = Post.all
 	end
@@ -13,8 +15,8 @@ class PostsController < ApplicationController
 
 	def create
 	  @post = Post.new
-	  @post.title = params[:title]
-	  @post.description = params[:description]
+		@post.title = params[:post][:title]
+	  @post.description = params[:post][:description]
 	  @post.save
 	  redirect_to post_path(@post)
 	end
